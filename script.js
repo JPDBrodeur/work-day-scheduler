@@ -1,20 +1,18 @@
 // Get today's date with Moment.js
 var today = moment().format("dddd, MMMM do");
-var todayNumeric = moment().format("DD.MM.YYYY")
-var currentTime = moment().format("HH:mm")
-var rightNow = (todayNumeric + " " + currentTime)
 // Add date to header
 $('#currentDay').text(today);
 
-timeArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+var timeArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+
 $.each(timeArr, function(index, hour) {
-    var timeFrom = moment().diff(moment().hour(hour).minute(0), 'minutes');
-    if (timeFrom < 0) {
+    var minutesFrom = moment().diff(moment().hour(hour).minute(0), 'minutes');
+    if (minutesFrom < 0) {
         $("." + hour + ".event").addClass("future");
-    } else if (timeFrom > 60) {
+    } else if (minutesFrom > 59) {
         $("." + hour + ".event").addClass("past");
     } else {
         $("." + hour + ".event").addClass("present");
     } 
-    console.log("Time from " + hour + ":00 : " + timeFrom);
+    console.log("Minutes from " + hour + ":00 : " + minutesFrom);
 })
