@@ -1,5 +1,5 @@
 // Get today's date with Moment.js
-var today = moment().format("dddd, MMMM do");
+var today = moment().format("dddd, MMMM Do");
 
 // Set global variables
 var timeArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
